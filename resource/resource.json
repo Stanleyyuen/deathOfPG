@@ -1,0 +1,14 @@
+{
+	"resources": [
+		{"name": "bgImage", "type": "image", "url": "assets/bg.jpg"},
+		{"name":"bullet1", "type":"image", "url":"assets/bullet1.png"},
+		{"name":"bgMusic","type":"sound","url":"assets/bgmusic.mp3"},
+		{"name":"ballImage","type":"image","url":"assets/ball.png"}
+	],
+	"groups": [
+		{
+			"name": "preload",
+			"keys": "bgImage, bullet1, bgMusic, ballImage"
+		}
+	]
+}
