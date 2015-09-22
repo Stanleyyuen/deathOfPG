@@ -4,12 +4,6 @@
             super();
         }
 
-        // private offsetx: number;
-        // private offsety: number;
-        // private skin: string;
-        // private radius: number; 
-        // private glob: number; 
-
         private lastTime: number=0; 
         // private sp: egret.MovieClip;
         private sp: egret.Shape;
