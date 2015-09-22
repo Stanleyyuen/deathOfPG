@@ -92,7 +92,7 @@
         }
 
         public get Point(): egret.Point {
-            return new egret.Point(this.x,this.y);
+            return new egret.Point(this.x + this.width / 2, this.y + this.height / 2);
         }
 
     }

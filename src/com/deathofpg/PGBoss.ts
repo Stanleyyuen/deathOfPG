@@ -38,7 +38,6 @@
             if (nowTime > this.lastTime) {
                 this.lastTime = nowTime + 600;//下次执行时间
                 game.PGControls.dispatchEvent(game.BaseEvent.gm_activation_bullet, target);
-                // this.changOrientation(target.Point);
             }
            
         }
@@ -47,7 +46,6 @@
             super.OnLoad(parent);
             parent.addChild(this);
             this.creatSp();
-            // this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTab, this);
             game.ModuleManager.Instance.RegisterModule(this);
 
 
@@ -65,7 +63,6 @@
             if (this.parent != null) {
                 this.parent.removeChild(this);
             }
-            // this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTab, this);
             game.ModuleManager.Instance.UnRegisterModule(this);
         }
 
@@ -85,7 +82,6 @@
 
             programmer = objectList[1];
             this.creatBullet(this, programmer);
-            // this.MoveSpeed = 0;
         }
     }
 } 

@@ -4,12 +4,6 @@
             super();
         }
 
-        // private offsetx: number;
-        // private offsety: number;
-        // private skin: string;
-        // private radius: number; 
-        // private glob: number; 
-
         private lastTime: number=0; 
         // private sp: egret.MovieClip;
         private sp:egret.Shape;
@@ -35,13 +29,10 @@
             this.y = egret.MainContext.instance.stage.stageHeight - this.sp.width;
 
             // this.sp.gotoAndPlay(1, -1);
-
-            // this.sp.touchEnabled = true;
         }
 
         public OnLoad(parent: egret.DisplayObjectContainer): void {
             super.OnLoad(parent);
-            this.name = "programmer";
             parent.addChild(this);
             this.creatSp();
             game.ModuleManager.Instance.RegisterModule(this);
@@ -56,7 +47,6 @@
             if (this.parent != null) {
                 this.parent.removeChild(this);
             }
-            // this.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTouchTab, this);
             game.ModuleManager.Instance.UnRegisterModule(this);
         }
 
@@ -71,7 +61,6 @@
             if (this.MoveSpeed == 0){
                 return;
             }
-            // this.searchTarget();
         }
     }
 } 

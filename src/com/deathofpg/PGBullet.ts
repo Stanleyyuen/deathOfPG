@@ -56,18 +56,16 @@
         }
 
         private move(passTime: number): void {
-            // var distance: number = game.CommonFunction.GetDistance(this.Point, this.target.Point);
-            // if (distance <= this.radius) {
-            if (this.y >= egret.MainContext.instance.stage.stageHeight - 300) {
+            var distance: number = game.CommonFunction.GetDistance(this.Point, this.target.Point);
+            if (distance <= 152) {
+                console.log('hit!');
                 this.target.setHp(this.target.Hp - this.Atk);
                 this.target = null;
                 this.OnRelease();
+            } else if (this.y >= egret.MainContext.instance.stage.stageHeight - 300) {
+                this.target = null;
+                this.OnRelease();
             } else {
-                // var targetSpeed: egret.Point = game.CommonFunction.GetSpeed(this.target.Point, this.Point, this.MoveSpeed);
-                // var xDistance: number = 10 * targetSpeed.x;
-                // console.log(targetSpeed.y);
-                // var yDistance: number = 10 * targetSpeed.y;
-                // this.x = this.x + xDistance;
                 this.y = this.y + 10;
             }
         }
