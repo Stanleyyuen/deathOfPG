@@ -1,4 +1,4 @@
 # deathOfPG
-H5 game developing width egret
+一个使用egret引擎开发的html5游戏
 
-this is a special game that I pay tribute to programmers
+勃起吧程序猿！不要向可恶的上层建筑屈服~
