@@ -43,38 +43,6 @@
             this.Hp = value;
             this.dispatchEvent(new egret.Event("gm_hpChange"));
         }
-        /**
-        *   设定朝向
-        * @param p:要朝向的点
-        */
-        public setDirection(p: egret.Point): void
-        {
-            var xNum: number = p.x - this.x;
-            var yNum: number = p.y - this.y;
-            var tempDirection: string;
-            if (xNum == 0) {
-                if (yNum > 0) {
-                    tempDirection = "down";
-                }
-                if (yNum < 0) {
-                    tempDirection = "up";
-                }
-            }
-            if (yNum == 0) {
-                if (xNum > 0) {
-                    tempDirection = "right";
-                }
-                if (xNum < 0) {
-                    tempDirection = "left";
-                }
-            }
-            if (tempDirection != this.direction) {
-
-                this.direction = tempDirection;
-                this.dispatchEvent(new egret.Event("gm_directionChange"));
-            }
-            return; 
-        }
 
         /**
 		 *	 虚方法，需要Override

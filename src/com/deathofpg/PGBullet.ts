@@ -11,10 +11,10 @@
             this.removeEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
         }
 
-        private radius: number;
         private target: game.BaseSprite;
 
         public setTarget(target: game.BaseSprite): void {
+
             var arr = [true, false];
             var bol = arr[Math.floor(Math.random()*arr.length)];
             this.x = bol ? (egret.MainContext.instance.stage.stageWidth - 300) / 2 : egret.MainContext.instance.stage.stageWidth / 2 + 100;
@@ -27,13 +27,13 @@
             ball.height = 59;
 
             this.addChild(ball);
-            this.radius = 10;
+            this.Atk = 20;
             this.MoveSpeed = 1;
         }
 
         public OnLoad(parent: egret.DisplayObjectContainer): void {
-            parent.addChild(this);
 
+            parent.addChild(this);
             game.ModuleManager.Instance.RegisterModule(this);
         }
 
@@ -51,14 +51,16 @@
         *
         */
         public OnUpdate(passTime: number): void {
+
             super.OnUpdate(passTime);
             this.move(passTime);
         }
 
         private move(passTime: number): void {
+
             var distance: number = game.CommonFunction.GetDistance(this.Point, this.target.Point);
             if (distance <= 152) {
-                console.log('hit!');
+                console.log(this.target.Hp);
                 this.target.setHp(this.target.Hp - this.Atk);
                 this.target = null;
                 this.OnRelease();
