@@ -180,6 +180,7 @@ class Main extends egret.DisplayObjectContainer {
     private playMusic():void {
         this.sound = RES.getRes("bgMusic");
         this.soundChannel = this.sound.play(0,1);
+        console.log('test');
         // this.sound.play(true);
     }
 }
