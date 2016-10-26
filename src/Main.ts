@@ -122,11 +122,14 @@ class Main extends egret.DisplayObjectContainer {
         this.scene = new game.PGScene();
         this.scene.OnLoad();
 
-        // this.playMusic();
+        this.sound = new egret.Sound();
+        this.sound = RES.getRes("bgMusic");
+        this.sound.addEventListener(egret.Event.COMPLETE, this.playMusic, this);
+        this.sound.addEventListener(egret.IOErrorEvent.IO_ERROR, this.loadMusicError, this);
 
         // 音乐开关
         var gMusic:HTMLElement = document.getElementById('g-music');
-        // gMusic.addEventListener('click', this.gMusicClick.bind(this), false);
+        gMusic.addEventListener('click', this.gMusicClick.bind(this), false);
 
         // 跑步过程点击左右按钮
         this.paceLeft.addEventListener('touchstart', this.paceChange.bind(this), false);
@@ -167,10 +170,10 @@ class Main extends egret.DisplayObjectContainer {
     private gMusicClick():void {
         var gMusic:HTMLElement = document.getElementById('g-music');
         if (this.soundIsPlaying) {
-            // this.sound.pause();
+            this.stopMusic();
             gMusic.className = "g-musicoff";
         } else {
-            // this.sound.resume();
+            this.playMusic();
             gMusic.className = "g-musicon";
         }
         this.soundIsPlaying = !this.soundIsPlaying;
@@ -178,10 +181,19 @@ class Main extends egret.DisplayObjectContainer {
 
     // 播放音乐
     private playMusic():void {
-        this.sound = RES.getRes("bgMusic");
-        this.soundChannel = this.sound.play(0,1);
-        console.log('test');
-        // this.sound.play(true);
+        this.soundChannel = this.sound.play();
+    }
+
+    // 停止播放音乐
+    private stopMusic():void {
+        if (this.soundChannel) {
+            this.soundChannel.stop();
+        }
+    }
+
+    // 加载声音出错
+    private loadMusicError(event:egret.Event):void {
+        console.log('声音加载出错！');
     }
 }
 
